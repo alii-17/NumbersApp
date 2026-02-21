@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="number"
+            type="com.example.numbersapp.NumberModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:padding="4dp">
+
+        <!-- Number Image (left side, 80dp x 80dp) -->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@{number.imageResId}"
+            android:contentDescription="@{number.englishName}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/number_one" />
+
+        <!-- English Name TextView -->
+        <TextView
+            android:id="@+id/tvEnglish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{number.englishName}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvArabic"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="One" />
+
+        <!-- Arabic Name TextView -->
+        <TextView
+            android:id="@+id/tvArabic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{number.arabicName}"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:layoutDirection="rtl"
+            android:textAlignment="viewStart"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEnglish"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="واحد" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
